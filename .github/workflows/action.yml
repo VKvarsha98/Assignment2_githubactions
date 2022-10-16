@@ -1,4 +1,6 @@
-name: Docker Action task4
+
+
+name: Github actions
 
 on:
   push:
@@ -15,6 +17,6 @@ jobs:
     - uses: actions/checkout@v1
     - name: Build & Push Image
       run: |
-        echo "${{ secrets.VKVK }}" | docker login -u "varshavk98" --password-stdin
-        docker image build -t varshavk98/dockeractions:latest .
-        docker push varshavk98/dockeractions:latest
+        echo "${{ secrets.ASSIGNMENT2 }}" | docker login -u "varshavk98" --password-stdin
+        docker image build -t varshavk98/Githubactions_assignment:latest .
+        docker push uses: docker/build-push:latest
