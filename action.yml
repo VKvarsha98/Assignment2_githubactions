@@ -1,16 +1,20 @@
-# action.yml
-name: 'Github Action'
-description: 'Assignemnt2 task 4'
-inputs:
-  who-to-greet:  # id of input
-    description: 'Assignemnt2 task 4'
-    required: true
-    default: 'World'
-outputs:
-  time: # id of output
-    description: 'Done'
-runs:
-  using: 'docker'
-  image: 'Dockerfile'
-  args:
-    - ${{ inputs.Assignemnt2-task-4 }}
+name: Docker Action task4
+
+on:
+  push:
+   branches: [ main ]
+  pull_request:
+    branches: [ main ]
+      
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Build & Push Image
+      run: |
+        echo "${{ secrets.VKVK }}" | docker login -u "varshavk98" --password-stdin
+        docker image build -t varshavk98/dockeractions:latest .
+        docker push varshavk98/dockeractions:latest
