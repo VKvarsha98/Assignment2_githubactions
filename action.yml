@@ -1,0 +1,16 @@
+# action.yml
+name: 'Github Action'
+description: 'Assignemnt2 task 4'
+inputs:
+  who-to-greet:  # id of input
+    description: 'Assignemnt2 task 4'
+    required: true
+    default: 'World'
+outputs:
+  time: # id of output
+    description: 'Done'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.Assignemnt2-task-4 }}
